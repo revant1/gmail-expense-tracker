@@ -1,0 +1,17 @@
+[tools]
+python = "latest"
+java = "latest"
+node = "latest"
+pnpm = "latest"
+
+[tasks.setup-dbeaver]
+run = "sudo apt update && sudo apt install snapd -y && sudo snap install dbeaver-ce --classic"
+description = "Install DBeaver via snap"
+
+[tasks.setup-java]
+run = "mise install java@latest"
+description = "Install latest Java"
+
+[tasks.dev]
+run = "echo 'Java: $(java -version 2>&1 | head -1)'\necho 'Node: $(node --version)'\necho 'Python: $(python --version)'\necho 'pnpm: $(pnpm --version)'"
+description = "Show all installed tool versions"
